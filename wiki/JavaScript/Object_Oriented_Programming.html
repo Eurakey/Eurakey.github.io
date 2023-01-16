@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 5.4.2">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://gcore.jsdelivr.net'>
+  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  
+  <title>JavaScript：OOP - 一方净土</title>
+
+  
+    <meta name="description" content="Object-Oriented ProgrammingWhat is OOP? OOP is a programming paradigm based on the concept of objects We use objects to model(describe) real-world or abstract features Objects may contain data (proper">
+<meta property="og:type" content="website">
+<meta property="og:title" content="OOP">
+<meta property="og:url" content="https://eurakey.github.io/wiki/JavaScript/Object_Oriented_Programming">
+<meta property="og:site_name" content="一方净土">
+<meta property="og:description" content="Object-Oriented ProgrammingWhat is OOP? OOP is a programming paradigm based on the concept of objects We use objects to model(describe) real-world or abstract features Objects may contain data (proper">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://eurakey.github.io/wiki/JavaScript/Object_Oriented_Programmin/Users/name/AppData/Roaming/Typora/typora-user-images/image-20230114194359265.png">
+<meta property="og:image" content="https://eurakey.github.io/wiki/JavaScript/Object_Oriented_Programmin/Users/name/AppData/Roaming/Typora/typora-user-images/image-20230114194318468.png">
+<meta property="article:published_time" content="2023-01-16T12:06:08.677Z">
+<meta property="article:modified_time" content="2023-01-16T12:06:08.677Z">
+<meta property="article:author" content="Eureka">
+<meta property="article:tag" content="blog, Eureka">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://eurakey.github.io/wiki/JavaScript/Object_Oriented_Programmin/Users/name/AppData/Roaming/Typora/typora-user-images/image-20230114194359265.png">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+    <link rel="shortcut icon" href="/./img/rocket.pmg">
+  
+
+  
+
+  
+
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='wiki'>
+    
+
+  
+
+
+
+
+<div class="widgets"><widget class="widget-wrapper logo-wrap wiki"><div class="widget-body"><a style="filter: grayscale(100%)" class="wiki-home cap" href="/wiki"><svg aria-hidden="true" viewBox="0 0 16 16" width="1rem" height="1rem" fill="currentColor"><path fill-rule="evenodd" d="M7.78 12.53a.75.75 0 01-1.06 0L2.47 8.28a.75.75 0 010-1.06l4.25-4.25a.75.75 0 011.06 1.06L4.81 7h7.44a.75.75 0 010 1.5H4.81l2.97 2.97a.75.75 0 010 1.06z"></path></svg>所有项目</a><a class="title" href="/wiki/JavaScript/"><div class="main" ff="title">JavaScript</div><div class="sub normal cap">留下痕迹</div><div class="sub hover cap" style="opacity:0"> Wrriten by Eureka</div></a></div></widget>
+
+<widget class="widget-wrapper toc multi" id="data-toc"><div class="widget-header cap dis-select"><span class="name">OOP</span></div><div class="widget-body fs14"><div class="doc-tree"><a class="doc-tree-link" href="/wiki/JavaScript/#start"><span class="toc-text">前言</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/JavaScript/Array"><span class="toc-text">Array</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/JavaScript/Complie_and_Interpret"><span class="toc-text">Complie_and_Interpret</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/JavaScript/Nullish_Coalescing_Operater_and_Or_equal"><span class="toc-text">Nullish_Coalescing_Operater_and_Or_equal</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/JavaScript/Optional_Chaining"><span class="toc-text">Optional_Chaining</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/JavaScript/Sets_and_Maps"><span class="toc-text">Sets_and_Maps</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/JavaScript/Spread_Operator"><span class="toc-text">Spread_Operator</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/JavaScript/Loop"><span class="toc-text">LOOP</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/JavaScript/Which_Data_Structure_to_Use"><span class="toc-text">Which_Data_Structure_to_Use</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/JavaScript/Working_with_Strings"><span class="toc-text">String</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/JavaScript/Functions"><span class="toc-text">Function</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/JavaScript/Numbers_and_Dates"><span class="toc-text">Numbers_and_Dates</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/JavaScript/Advanced_Dom"><span class="toc-text">Advanced_Dom</span></a></div><div class="doc-tree active"><a class="doc-tree-link active" href="/wiki/JavaScript/Object_Oriented_Programming"><span class="toc-text">OOP</span></a><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#What-is-OOP"><span class="toc-text">What is OOP?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Four-Fundamental-principles-of-OOP"><span class="toc-text">Four Fundamental principles of OOP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OOP-In-JS"><span class="toc-text">OOP In JS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Prototypes"><span class="toc-text">Prototypes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ES6-Classes"><span class="toc-text">ES6 Classes</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Setters-and-Getters"><span class="toc-text">Setters and Getters</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Static-Methods-and-Instance-Methods"><span class="toc-text">Static Methods and Instance Methods</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Object-create"><span class="toc-text">Object.create()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Inheritance-between-Classes"><span class="toc-text">Inheritance between Classes</span></a></li></ol></div></div></widget>
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+  
+  
+
+
+  <article class='md-text content wiki'>
+  <h1 class="article-title"><span>OOP</span></h1>
+  <h1 id="Object-Oriented-Programming"><a href="#Object-Oriented-Programming" class="headerlink" title="Object-Oriented Programming"></a>Object-Oriented Programming</h1><h2 id="What-is-OOP"><a href="#What-is-OOP" class="headerlink" title="What is OOP?"></a>What is OOP?</h2><ul>
+<li>OOP is a programming paradigm based on the concept of objects</li>
+<li>We use objects to model(describe) real-world or abstract features</li>
+<li>Objects may contain data (properties) and code (methods). By using objects, we pack data and the corresponding behavior into one block.</li>
+<li>In OOP, objects are self-contained pieces/blocks of code</li>
+<li>Objects are building blocks of applications, and interact with one another</li>
+<li>Interactions happen through a public interface(API): methods that the code out side of the object can access and use to communicate with the object;</li>
+</ul>
+<h2 id="Four-Fundamental-principles-of-OOP"><a href="#Four-Fundamental-principles-of-OOP" class="headerlink" title="Four Fundamental principles of OOP"></a>Four Fundamental principles of OOP</h2><ul>
+<li>abstraction</li>
+<li>encapsulation</li>
+<li>inheritance</li>
+<li>polumorphism</li>
+</ul>
+<h2 id="OOP-In-JS"><a href="#OOP-In-JS" class="headerlink" title="OOP In JS"></a>OOP In JS</h2><p>![93A0512868D930D5AD890F926DBB7C6D](C:\Users\name\Documents\Tencent Files\747417582\FileRecv\MobileFile\93A0512868D930D5AD890F926DBB7C6D.png)</p>
+<h2 id="Prototypes"><a href="#Prototypes" class="headerlink" title="Prototypes"></a>Prototypes</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Prototypes</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>);</span><br><span class="line"></span><br><span class="line"><span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">calcAge</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">2037</span> - <span class="variable language_">this</span>.<span class="property">birthYear</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">jonas.<span class="title function_">calcAge</span>();</span><br><span class="line">matilda.<span class="title function_">calcAge</span>();</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(jonas.<span class="property">__proto__</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(jonas.<span class="property">__proto__</span> === <span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="title function_">isPrototypeOf</span>(jonas));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="title function_">isPrototypeOf</span>(matilda));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="title function_">isPrototypeOf</span>(<span class="title class_">Person</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// .prototyeOfLinkedObjects</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">species</span> = <span class="string">&#x27;Homo Sapiens&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(jonas.<span class="property">species</span>, matilda.<span class="property">species</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(jonas.<span class="title function_">hasOwnProperty</span>(<span class="string">&#x27;firstName&#x27;</span>));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(jonas.<span class="title function_">hasOwnProperty</span>(<span class="string">&#x27;species&#x27;</span>));</span><br></pre></td></tr></table></figure>
+
+<p>![5E3F22E98E49E12A556E7822206F8C4D](C:\Users\name\Documents\Tencent Files\747417582\FileRecv\MobileFile\5E3F22E98E49E12A556E7822206F8C4D.png)</p>
+<p>![BAEE3FFF41CE2088CBA7EC401A89B92A](C:\Users\name\Documents\Tencent Files\747417582\FileRecv\MobileFile\BAEE3FFF41CE2088CBA7EC401A89B92A.png)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Prototypal Inheritance on Built-In Objects</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(jonas.<span class="property">__proto__</span>);</span><br><span class="line"><span class="comment">// Object.prototype (top of prototype chain)</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(jonas.<span class="property">__proto__</span>.<span class="property">__proto__</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(jonas.<span class="property">__proto__</span>.<span class="property">__proto__</span>.<span class="property">__proto__</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">dir</span>(<span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">constructor</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> arr = [<span class="number">3</span>, <span class="number">6</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">9</span>, <span class="number">9</span>]; <span class="comment">// new Array === []</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr.<span class="property">__proto__</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr.<span class="property">__proto__</span> === <span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr.<span class="property">__proto__</span>.<span class="property">__proto__</span>);</span><br><span class="line"></span><br><span class="line"><span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">unique</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> [...<span class="keyword">new</span> <span class="title class_">Set</span>(<span class="variable language_">this</span>)];</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr.<span class="title function_">unique</span>());</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> h1 = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;h1&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">dir</span>(<span class="function"><span class="params">x</span> =&gt;</span> x + <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="ES6-Classes"><a href="#ES6-Classes" class="headerlink" title="ES6 Classes"></a>ES6 Classes</h2><ul>
+<li>Classes are NOT hoisted</li>
+<li>Classes are first-class citizens</li>
+<li>Classes are executed in strict mode</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES6 Classes</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Class expression</span></span><br><span class="line"><span class="comment">// const PersonCl = class &#123;&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Class declaration</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">PersonCl</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">fullName, birthYear</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">fullName</span> = fullName;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">birthYear</span> = birthYear;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Instance methods</span></span><br><span class="line">  <span class="comment">// Methods will be added to .prototype property</span></span><br><span class="line">  <span class="title function_">calcAge</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">2037</span> - <span class="variable language_">this</span>.<span class="property">birthYear</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">greet</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`Hey <span class="subst">$&#123;<span class="variable language_">this</span>.fullName&#125;</span>`</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">get</span> <span class="title function_">age</span>() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">2037</span> - <span class="variable language_">this</span>.<span class="property">birthYear</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Set a property that already exists</span></span><br><span class="line">  <span class="keyword">set</span> <span class="title function_">fullName</span>(<span class="params">name</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (name.<span class="title function_">includes</span>(<span class="string">&#x27; &#x27;</span>)) <span class="variable language_">this</span>.<span class="property">_fullName</span> = name;</span><br><span class="line">    <span class="keyword">else</span> <span class="title function_">alert</span>(<span class="string">`<span class="subst">$&#123;name&#125;</span> is not a full name!`</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">get</span> <span class="title function_">fullName</span>() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">_fullName</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Static method</span></span><br><span class="line">  <span class="keyword">static</span> <span class="title function_">hey</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Hey there 👋&#x27;</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> jessica = <span class="keyword">new</span> <span class="title class_">PersonCl</span>(<span class="string">&#x27;Jessica Davis&#x27;</span>, <span class="number">1996</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(jessica);</span><br><span class="line">jessica.<span class="title function_">calcAge</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(jessica.<span class="property">age</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(jessica.<span class="property">__proto__</span> === <span class="title class_">PersonCl</span>.<span class="property"><span class="keyword">prototype</span></span>); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// PersonCl.prototype.greet = function () &#123;</span></span><br><span class="line"><span class="comment">//   console.log(`Hey $&#123;this.firstName&#125;`);</span></span><br><span class="line"><span class="comment">// &#125;;</span></span><br><span class="line">jessica.<span class="title function_">greet</span>();</span><br></pre></td></tr></table></figure>
+
+<h3 id="Setters-and-Getters"><a href="#Setters-and-Getters" class="headerlink" title="Setters and Getters"></a>Setters and Getters</h3><h3 id="Static-Methods-and-Instance-Methods"><a href="#Static-Methods-and-Instance-Methods" class="headerlink" title="Static Methods and Instance Methods"></a>Static Methods and Instance Methods</h3><h2 id="Object-create"><a href="#Object-create" class="headerlink" title="Object.create()"></a>Object.create()</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/wiki/JavaScript/Object_Oriented_Programmin/Users\name\AppData\Roaming\Typora\typora-user-images\image-20230114194359265.png" alt="image-20230114194359265"></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Object.create</span></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">PersonProto</span> = &#123;</span><br><span class="line">  <span class="title function_">calcAge</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">2037</span> - <span class="variable language_">this</span>.<span class="property">birthYear</span>);</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="title function_">init</span>(<span class="params">firstName, birthYear</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">firstName</span> = firstName;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">birthYear</span> = birthYear;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> steven = <span class="title class_">Object</span>.<span class="title function_">create</span>(<span class="title class_">PersonProto</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(steven);</span><br><span class="line">steven.<span class="property">name</span> = <span class="string">&#x27;Steven&#x27;</span>;</span><br><span class="line">steven.<span class="property">birthYear</span> = <span class="number">2002</span>;</span><br><span class="line">steven.<span class="title function_">calcAge</span>();</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(steven.<span class="property">__proto__</span> === <span class="title class_">PersonProto</span>); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> sarah = <span class="title class_">Object</span>.<span class="title function_">create</span>(<span class="title class_">PersonProto</span>);</span><br><span class="line">sarah.<span class="title function_">init</span>(<span class="string">&#x27;Sarah&#x27;</span>, <span class="number">1979</span>);</span><br><span class="line">sarah.<span class="title function_">calcAge</span>();</span><br></pre></td></tr></table></figure>
+
+<h2 id="Inheritance-between-Classes"><a href="#Inheritance-between-Classes" class="headerlink" title="Inheritance between Classes"></a>Inheritance between Classes</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/wiki/JavaScript/Object_Oriented_Programmin/Users\name\AppData\Roaming\Typora\typora-user-images\image-20230114194318468.png" alt="image-20230114194318468"></p>
+
+  
+
+
+  </article>
+  
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">回顾上一篇</div><a href="/wiki/JavaScript/Advanced_Dom">Advanced_Dom</a></div><div class="item" id="next"></div></section></div>
+
+  
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本站由 <a href="/">@anonymity</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  const stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.version = '1.18.5';
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://gcore.jsdelivr.net/npm/jquery@3.6.2/dist/jquery.min.js'
+  };
+
+  if ('local_search') {
+    stellar.search = {};
+    stellar.search.service = 'local_search';
+    if (stellar.search.service == 'local_search') {
+      let service_obj = Object.assign({}, {"field":"all","path":"/search.json","content":true,"sort":"-date"});
+      stellar.search[stellar.search.service] = service_obj;
+    }
+  }
+
+  // stellar js
+  stellar.plugins.stellar = Object.assign({"sites":"/js/plugins/sites.js","friends":"/js/plugins/friends.js","ghinfo":"/js/plugins/ghinfo.js","timeline":"/js/plugins/timeline.js","linkcard":"/js/plugins/linkcard.js","fcircle":"/js/plugins/fcircle.js","weibo":"/js/plugins/weibo.js"});
+
+  stellar.plugins.marked = Object.assign("https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js");
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.css","js":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://gcore.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://gcore.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://gcore.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti@0.9.2/umd/heti.min.css","js":"https://unpkg.com/heti@0.9.2/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+  <script>
+  function loadJS() {
+    const els = document.querySelectorAll("#comments #giscus");
+    if (els.length === 0) return;
+    els.forEach((el, i) => {
+      try {
+        el.innerHTML = '';
+      } catch (error) {
+        console.log(error);
+      }
+      var script = document.createElement('script');
+      script.src = 'https://giscus.app/client.js';
+      script.async = true;
+      for (let key of Object.keys(el.attributes)) {
+        let attr = el.attributes[key];
+        if (['class', 'id'].includes(attr.name) === false) {
+          script.setAttribute(attr.name, attr.value);
+        }
+      }
+      el.appendChild(script);
+    });
+  }
+  window.addEventListener('DOMContentLoaded', (event) => {
+    loadJS();
+  });
+</script>
+
+
+
+
+<!-- inject -->
+
+
+  </div>
+  <!--动态线条背景-->
+<script type="text/javascript"
+color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>
+</body>
+</html>
