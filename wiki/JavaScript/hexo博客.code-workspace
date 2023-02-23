@@ -1,0 +1,15 @@
+{
+  "folders": [
+	{
+		"path": "../../.."
+	},
+	{
+		"path": "../../../../工作区"
+	}
+],
+  "settings": {
+    "liveServer.settings.port": 5501,
+    "liveServer.settings.multiRootWorkspaceName": "hexo博客",
+    "powershell.cwd": "c:\\Users\\name\\Desktop\\前端\\hexo博客"
+  }
+}

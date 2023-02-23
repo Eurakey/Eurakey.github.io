@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 5.4.2">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://gcore.jsdelivr.net'>
+  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  
+  <title>GPG简要入门指南 - 一方净土</title>
+
+  
+    <meta name="description" content="什么是GPG？ GPG 是一个加密、解密、签名、验证工具。 加密：对信息进行加密，有对称加密和非对称加密 解密：对加密的信息解密 签名：对发出的信息签名，使他人能验证信息为本人发出，且未被篡改过 验证：对接收到的签名的信息进行验证   GPG 还是一个密钥管理工具 管理自己的私钥，其他人的公钥，以及提供了一套公钥信任体系。安装下载安装 GPG：访问 GPG官网，下载适合自己操作系统平台的安装程序。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GPG简要入门指南">
+<meta property="og:url" content="https://eurakey.github.io/2023/02/23/gpg/">
+<meta property="og:site_name" content="一方净土">
+<meta property="og:description" content="什么是GPG？ GPG 是一个加密、解密、签名、验证工具。 加密：对信息进行加密，有对称加密和非对称加密 解密：对加密的信息解密 签名：对发出的信息签名，使他人能验证信息为本人发出，且未被篡改过 验证：对接收到的签名的信息进行验证   GPG 还是一个密钥管理工具 管理自己的私钥，其他人的公钥，以及提供了一套公钥信任体系。安装下载安装 GPG：访问 GPG官网，下载适合自己操作系统平台的安装程序。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-02-23T12:38:40.000Z">
+<meta property="article:modified_time" content="2023-02-23T12:39:35.104Z">
+<meta property="article:author" content="Eureka">
+<meta property="article:tag" content="tools">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Eurakey/picgodemo/img/rocket.png">
+  
+
+  
+
+  
+
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+  
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://cdn.jsdelivr.net/gh/Eurakey/picgodemo/imgavator.jpg" onerror="javascript:this.classList.add('error');this.src='null';"></a><a class="title" href="/%E4%B8%80%E6%96%B9%E5%87%80%E5%9C%9F"><div class="main" ff="title">一方净土</div><div class="sub normal cap">( •̀ ω •́ )y</div><div class="sub hover cap" style="opacity:0"> 😎😎😎</div></a></div>
+
+<nav class="menu dis-select"><a class="nav-item active" href="/">文章</a><a class="nav-item" href="/wiki/">合集</a><a class="nav-item" href="/about/">关于</a></nav>
+</header>
+
+
+<div class="widgets">
+<widget class="widget-wrapper search"><div class="widget-body"><div class="search-wrapper" id="search"><form class="search-form"><input type="text" class="search-input" id="search-input" data-filter="/blog/" placeholder="文章搜索"><svg t="1670596976048" class="icon search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2676" width="200" height="200"><path d="M938.2 832.6L723.8 618.1c-2.5-2.5-5.3-4.4-7.9-6.4 36.2-55.6 57.3-121.8 57.3-193.1C773.3 222.8 614.6 64 418.7 64S64 222.8 64 418.6c0 195.9 158.8 354.6 354.6 354.6 71.3 0 137.5-21.2 193.2-57.4 2 2.7 3.9 5.4 6.3 7.8L832.5 938c14.6 14.6 33.7 21.9 52.8 21.9 19.1 0 38.2-7.3 52.8-21.8 29.2-29.1 29.2-76.4 0.1-105.5M418.7 661.3C284.9 661.3 176 552.4 176 418.6 176 284.9 284.9 176 418.7 176c133.8 0 242.6 108.9 242.6 242.7 0 133.7-108.9 242.6-242.6 242.6" p-id="2677"></path></svg></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div></div></widget>
+
+
+<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">GPG简要入门指南</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFGPG%EF%BC%9F"><span class="toc-text">什么是GPG？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8"><span class="toc-text">开始使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%AF%86%E5%8C%99"><span class="toc-text">生成密匙</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%AF%86%E5%8C%99%E5%88%97%E8%A1%A8"><span class="toc-text">查看密匙列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A0%E5%AF%86%E5%92%8C%E8%A7%A3%E5%AF%86"><span class="toc-text">加密和解密</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AD%BE%E5%90%8D"><span class="toc-text">签名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81%E7%AD%BE%E5%90%8D"><span class="toc-text">验证签名</span></a></li></ol></div></div></widget>
+
+
+
+
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/Eurakey" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/social/08a41b181ce68.svg"/></a></div></footer>
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a></div><div id="post-meta">发布于&nbsp;<time datetime="2023-02-23T12:38:40.000Z">2023-02-23</time></div></div>
+
+<article class='md-text content post'>
+<h1 class="article-title"><span>GPG简要入门指南</span></h1>
+<h2 id="什么是GPG？"><a href="#什么是GPG？" class="headerlink" title="什么是GPG？"></a>什么是GPG？</h2><ol>
+<li>GPG 是一个加密、解密、签名、验证工具。<ul>
+<li>加密：对信息进行加密，有对称加密和非对称加密</li>
+<li>解密：对加密的信息解密</li>
+<li>签名：对发出的信息签名，使他人能验证信息为本人发出，且未被篡改过</li>
+<li>验证：对接收到的签名的信息进行验证</li>
+</ul>
+</li>
+<li>GPG 还是一个密钥管理工具<ul>
+<li>管理自己的私钥，其他人的公钥，以及提供了一套公钥信任体系。<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2>下载安装 GPG：访问 <a target="_blank" rel="noopener" href="http://www.gnupg.org/download">GPG官网</a>，下载适合自己操作系统平台的安装程序。<br>安装完成后，打开 CMD 窗口，输入 <code>gpg --version</code>验证是否安装成功<br>出现下列信息表示成功<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">C:\<span class="title">Users</span>\<span class="title">name</span>&gt;<span class="title">gpg</span> --<span class="title">version</span></span></span><br><span class="line"><span class="function"><span class="title">gpg</span> (<span class="title">GnuPG</span>) 2.4.0</span></span><br><span class="line"><span class="function"><span class="title">libgcrypt</span> 1.10.1</span></span><br><span class="line"><span class="function"><span class="title">Copyright</span> (<span class="title">C</span>) 2021 <span class="title">g10</span> <span class="title">Code</span> <span class="title">GmbH</span></span></span><br><span class="line"><span class="function"><span class="title">License</span> <span class="title">GNU</span> <span class="title">GPL</span>-3.0-<span class="title">or</span>-<span class="title">later</span> &lt;<span class="title">https</span>://<span class="title">gnu.org</span>/<span class="title">licenses</span>/<span class="title">gpl.html</span>&gt;</span></span><br><span class="line"><span class="function"><span class="title">This</span> <span class="title">is</span> <span class="title">free</span> <span class="title">software</span>: <span class="title">you</span> <span class="title">are</span> <span class="title">free</span> <span class="title">to</span> <span class="title">change</span> <span class="title">and</span> <span class="title">redistribute</span> <span class="title">it</span>.</span></span><br><span class="line"><span class="function"><span class="title">There</span> <span class="title">is</span> <span class="title">NO</span> <span class="title">WARRANTY</span>, <span class="title">to</span> <span class="title">the</span> <span class="title">extent</span> <span class="title">permitted</span> <span class="title">by</span> <span class="title">law</span>.</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">Home</span>: <span class="title">C</span>:\<span class="title">Users</span>\<span class="title">name</span>\<span class="title">AppData</span>\<span class="title">Roaming</span>\<span class="title">gnupg</span></span></span><br><span class="line"><span class="function"><span class="title">Supported</span> <span class="title">algorithms</span>:</span></span><br><span class="line"><span class="function"><span class="title">Pubkey</span>: <span class="title">RSA</span>, <span class="title">ELG</span>, <span class="title">DSA</span>, <span class="title">ECDH</span>, <span class="title">ECDSA</span>, <span class="title">EDDSA</span></span></span><br><span class="line"><span class="function"><span class="title">Cipher</span>: <span class="title">IDEA</span>, 3<span class="title">DES</span>, <span class="title">CAST5</span>, <span class="title">BLOWFISH</span>, <span class="title">AES</span>, <span class="title">AES192</span>, <span class="title">AES256</span>, <span class="title">TWOFISH</span>,</span></span><br><span class="line"><span class="function">        <span class="title">CAMELLIA128</span>, <span class="title">CAMELLIA192</span>, <span class="title">CAMELLIA256</span></span></span><br><span class="line"><span class="function"><span class="title">Hash</span>: <span class="title">SHA1</span>, <span class="title">RIPEMD160</span>, <span class="title">SHA256</span>, <span class="title">SHA384</span>, <span class="title">SHA512</span>, <span class="title">SHA224</span></span></span><br><span class="line"><span class="function"><span class="title">Compression</span>: <span class="title">Uncompressed</span>, <span class="title">ZIP</span>, <span class="title">ZLIB</span>, <span class="title">BZIP2</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h2>输入<code>gpg -help</code>列出所有指令<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line">Commands:</span><br><span class="line"></span><br><span class="line"> -s, --sign                         make a signature</span><br><span class="line">     --clear-sign                   make a clear text signature</span><br><span class="line"> -b, --detach-sign                  make a detached signature</span><br><span class="line"> -e, --encrypt                      encrypt data</span><br><span class="line"> -c, --symmetric                    encryption only with symmetric cipher</span><br><span class="line"> -d, --decrypt                      decrypt data (default)</span><br><span class="line">     --verify                       verify a signature</span><br><span class="line"> -k, --list-keys                    list keys</span><br><span class="line">     --list-signatures              list keys and signatures</span><br><span class="line">     --check-signatures             list and check key signatures</span><br><span class="line">     --fingerprint                  list keys and fingerprints</span><br><span class="line"> -K, --list-secret-keys             list secret keys</span><br><span class="line">     --generate-key                 generate a new key pair</span><br><span class="line">     --quick-generate-key           quickly generate a new key pair</span><br><span class="line">     --quick-add-uid                quickly add a new user-id</span><br><span class="line">     --quick-revoke-uid             quickly revoke a user-id</span><br><span class="line">     --quick-set-expire             quickly set a new expiration date</span><br><span class="line">     --full-generate-key            full featured key pair generation</span><br><span class="line">     --generate-revocation          generate a revocation certificate</span><br><span class="line">     --delete-keys                  remove keys from the public keyring</span><br><span class="line">     --delete-secret-keys           remove keys from the secret keyring</span><br><span class="line">     --quick-sign-key               quickly sign a key</span><br><span class="line">     --quick-lsign-key              quickly sign a key locally</span><br><span class="line">     --quick-revoke-sig             quickly revoke a key signature</span><br><span class="line">     --sign-key                     sign a key</span><br><span class="line">     --lsign-key                    sign a key locally</span><br><span class="line">     --edit-key                     sign or edit a key</span><br><span class="line">     --change-passphrase            change a passphrase</span><br><span class="line">     --export                       export keys</span><br><span class="line">     --send-keys                    export keys to a keyserver</span><br><span class="line">     --receive-keys                 import keys from a keyserver</span><br><span class="line">     --search-keys                  search for keys on a keyserver</span><br><span class="line">     --refresh-keys                 update all keys from a keyserver</span><br><span class="line">     --import                       import/merge keys</span><br><span class="line">     --card-status                  print the card status</span><br><span class="line">     --edit-card                    change data on a card</span><br><span class="line">     --change-pin                   change a card&#x27;s PIN</span><br><span class="line">     --update-trustdb               update the trust database</span><br><span class="line">     --print-md                     print message digests</span><br><span class="line">     --server                       run in server mode</span><br><span class="line">     --tofu-policy VALUE            set the TOFU policy for a key</span><br><span class="line"></span><br><span class="line">Options controlling the diagnostic output:</span><br><span class="line"> -v, --verbose                      verbose</span><br><span class="line"> -q, --quiet                        be somewhat more quiet</span><br><span class="line">     --options FILE                 read options from FILE</span><br><span class="line">     --log-file FILE                write server mode logs to FILE</span><br><span class="line"></span><br><span class="line">Options controlling the configuration:</span><br><span class="line">     --default-key NAME             use NAME as default secret key</span><br><span class="line">     --encrypt-to NAME              encrypt to user ID NAME as well</span><br><span class="line">     --group SPEC                   set up email aliases</span><br><span class="line">     --openpgp                      use strict OpenPGP behavior</span><br><span class="line"> -n, --dry-run                      do not make any changes</span><br><span class="line"> -i, --interactive                  prompt before overwriting</span><br><span class="line"></span><br><span class="line">Options controlling the output:</span><br><span class="line"> -a, --armor                        create ascii armored output</span><br><span class="line"> -o, --output FILE                  write output to FILE</span><br><span class="line">     --textmode                     use canonical text mode</span><br><span class="line"> -z N                               set compress level to N (0 disables)</span><br><span class="line"></span><br><span class="line">Options controlling key import and export:</span><br><span class="line">     --auto-key-locate MECHANISMS   use MECHANISMS to locate keys by mail address</span><br><span class="line">     --auto-key-import              import missing key from a signature</span><br><span class="line">     --include-key-block            include the public key in signatures</span><br><span class="line">     --disable-dirmngr              disable all access to the dirmngr</span><br><span class="line"></span><br><span class="line">Options to specify keys:</span><br><span class="line"> -r, --recipient USER-ID            encrypt for USER-ID</span><br><span class="line"> -u, --local-user USER-ID           use USER-ID to sign or decrypt</span><br><span class="line"></span><br><span class="line">(See the man page for a complete listing of all commands and options)</span><br><span class="line"></span><br><span class="line">Examples:</span><br><span class="line"></span><br><span class="line"> -se -r Bob [file]          sign and encrypt for user Bob</span><br><span class="line"> --clear-sign [file]        make a clear text signature</span><br><span class="line"> --detach-sign [file]       make a detached signature</span><br><span class="line"> --list-keys [names]        show keys</span><br><span class="line"> --fingerprint [names]      show fingerprints</span><br><span class="line"></span><br><span class="line">Please report bugs to &lt;https://bugs.gnupg.org&gt;.</span><br></pre></td></tr></table></figure>
+<h2 id="生成密匙"><a href="#生成密匙" class="headerlink" title="生成密匙"></a>生成密匙</h2>输入<code>gpg --gen-key</code>生成<br>依据提示输入名称、电子邮箱等信息后输出密匙的相关信息<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">Note: Use &quot;gpg --full-generate-key&quot; for a full featured key generation dialog.</span><br><span class="line"></span><br><span class="line">GnuPG needs to construct a user ID to identify your key.</span><br><span class="line"></span><br><span class="line">Real name: xxxx</span><br><span class="line">Email address: xxxx</span><br><span class="line">You selected this USER-ID:</span><br><span class="line">    &quot;xxxx &lt;xxxx@qq.com&gt;&quot;</span><br><span class="line"></span><br><span class="line">Change (N)ame, (E)mail, or (O)kay/(Q)uit? o</span><br><span class="line">We need to generate a lot of random bytes. It is a good idea to perform</span><br><span class="line">some other action (type on the keyboard, move the mouse, utilize the</span><br><span class="line">disks) during the prime generation; this gives the random number</span><br><span class="line">generator a better chance to gain enough entropy.</span><br><span class="line">We need to generate a lot of random bytes. It is a good idea to perform</span><br><span class="line">some other action (type on the keyboard, move the mouse, utilize the</span><br><span class="line">disks) during the prime generation; this gives the random number</span><br><span class="line">generator a better chance to gain enough entropy.</span><br><span class="line">gpg: directory &#x27;C:\\Users\\name\\AppData\\Roaming\\gnupg\\openpgp-revocs.d&#x27; created</span><br><span class="line">gpg: revocation certificate stored as &#x27;C:\\Users\\name\\AppData\\Roaming\\gnupg\\openpgp-revocs.d\\064E4BB07566BA558B6B006A4BF6180BAB71781D.rev&#x27;</span><br><span class="line">public and secret key created and signed.</span><br><span class="line"></span><br><span class="line">pub   ed25519 2023-02-23 [SC] [expires: 2025-02-22]</span><br><span class="line">      064E4BB07566BA558B6B006A4BF6180BAB71781D</span><br><span class="line">uid                      xxxx &lt;xxxx@qq.com&gt;</span><br><span class="line">sub   cv25519 2023-02-23 [E] [expires: 2025-02-22]</span><br></pre></td></tr></table></figure>
+其中<code>064E4BB07566BA558B6B006A4BF6180BAB71781D</code>这是”用户ID”的Hash字符串，可以用来替代”用户ID”。<h2 id="查看密匙列表"><a href="#查看密匙列表" class="headerlink" title="查看密匙列表"></a>查看密匙列表</h2>输入<code>gpg --list-keys</code><br>如果你要从密钥列表中删除某个密钥，可以使用delete-key参数。<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gpg --<span class="keyword">delete</span>-key [用户ID]</span><br></pre></td></tr></table></figure>
+<h2 id="加密和解密"><a href="#加密和解密" class="headerlink" title="加密和解密"></a>加密和解密</h2>这个过程是对文件进行的</li>
+</ul>
+</li>
+<li>加密：```<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gpg --recipient [用户ID] --output [加密文件输出路径] --encrypt [加密文件输入路径]</span><br></pre></td></tr></table></figure></li>
+<li>解密：<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gpg [加密文件路径]</span><br></pre></td></tr></table></figure>
+<h2 id="签名"><a href="#签名" class="headerlink" title="签名"></a>签名</h2>有时，我们不需要加密文件，只需要对文件签名，表示这个文件确实是我本人发出的。sign参数用来签名。</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gpg --sign test.txt</span><br></pre></td></tr></table></figure>
+
+<p>然后生成了一个<code>test.txt.gpg</code>文件，我们打开这个文件后，发现这也是一个二进制的数据，<strong>这并不是加密后的数据，与上边的二进制数据不一样</strong>。如果想生成ASCII码的签名文件，可以使用clearsign参数</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gpg --clearsign test.txt</span><br></pre></td></tr></table></figure>
+<p>如果想生成单独的签名文件，与文件内容分开存放，可以使用detach-sign参数。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gpg --detach-sign test.txt</span><br></pre></td></tr></table></figure>
+
+<p>是一个二进制的数据，如果想采用ASCII码形式，要加上armor参数</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gpg --armor --detach-sign test.txt</span><br></pre></td></tr></table></figure>
+<h2 id="验证签名"><a href="#验证签名" class="headerlink" title="验证签名"></a>验证签名</h2><p>我们收到别人签名后的文件，需要用对方的公钥验证签名是否为真。verify参数用来验证</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gpg --verify test.txt.asc test.txt</span><br></pre></td></tr></table></figure>
+
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2023/01/20/%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E3%80%81%E5%A3%B0%E6%98%8E%E5%BC%8F%E5%92%8C%E5%91%BD%E4%BB%A4%E5%BC%8F%E7%BC%96%E7%A8%8B/">高阶函数、声明式和命令式编程</a></div></section></div>
+
+
+
+
+
+
+  <div class='related-wrap md-text reveal' id="comments">
+    <section class='header cmt-title cap theme'>
+      快来参与讨论吧
+    </section>
+    <section class='body cmt-body giscus'>
+      
+
+<svg class="loading" style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="giscus" data-repo="Eurakey/Eurakey.github.io" data-repo-id="R_kgDOIx0isA" data-category="Announcements" data-category-id="DIC_kwDOIx0isM4CTn49" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous"></div>
+
+    </section>
+  </div>
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本站由 <a target="_blank" rel="noopener" href="https://github.com/Eurakey">@Eureka</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  const stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.version = '1.18.5';
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://gcore.jsdelivr.net/npm/jquery@3.6.2/dist/jquery.min.js'
+  };
+
+  if ('local_search') {
+    stellar.search = {};
+    stellar.search.service = 'local_search';
+    if (stellar.search.service == 'local_search') {
+      let service_obj = Object.assign({}, {"field":"all","path":"/search.json","content":true,"sort":"-date"});
+      stellar.search[stellar.search.service] = service_obj;
+    }
+  }
+
+  // stellar js
+  stellar.plugins.stellar = Object.assign({"sites":"/js/plugins/sites.js","friends":"/js/plugins/friends.js","ghinfo":"/js/plugins/ghinfo.js","timeline":"/js/plugins/timeline.js","linkcard":"/js/plugins/linkcard.js","fcircle":"/js/plugins/fcircle.js","weibo":"/js/plugins/weibo.js"});
+
+  stellar.plugins.marked = Object.assign("https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js");
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.css","js":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://gcore.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://gcore.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://gcore.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti@0.9.2/umd/heti.min.css","js":"https://unpkg.com/heti@0.9.2/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+  <script>
+  function loadJS() {
+    const els = document.querySelectorAll("#comments #giscus");
+    if (els.length === 0) return;
+    els.forEach((el, i) => {
+      try {
+        el.innerHTML = '';
+      } catch (error) {
+        console.log(error);
+      }
+      var script = document.createElement('script');
+      script.src = 'https://giscus.app/client.js';
+      script.async = true;
+      for (let key of Object.keys(el.attributes)) {
+        let attr = el.attributes[key];
+        if (['class', 'id'].includes(attr.name) === false) {
+          script.setAttribute(attr.name, attr.value);
+        }
+      }
+      el.appendChild(script);
+    });
+  }
+  window.addEventListener('DOMContentLoaded', (event) => {
+    loadJS();
+  });
+</script>
+
+
+
+
+<!-- inject -->
+
+
+  </div>
+  <!--动态线条背景-->
+<script type="text/javascript"
+color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300,"hOffset":-15,"vOffset":-15},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
